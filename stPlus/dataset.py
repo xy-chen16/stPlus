@@ -35,6 +35,7 @@ class TensorsDataset(TensorDataset):
         target = self.target[index]                   
         for transform in self.target_transforms:           
             target = transforms.ToTensor(transform(transforms.ToPILImage(target)))
-        return (data, target)                     
+        return (data, target)
+
     def __len__(self):                           
         return self.data.size(0)

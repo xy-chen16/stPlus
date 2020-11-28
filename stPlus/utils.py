@@ -44,6 +44,9 @@ def pred_genes(net, val_loader, train_lab, scRNA_data, genes_to_predict):
     
     net.train()
     return pred_res
+
+
+
 def select_top_variable_genes(data_mtx, top_k):
     """
     data_mtx: data matrix (cell by gene)
@@ -53,14 +56,21 @@ def select_top_variable_genes(data_mtx, top_k):
     ind = np.argpartition(var,-top_k)[-top_k:]
     return ind
 
+
+
 def save_obj(obj, name):
     with open(name + '.pkl', 'wb') as f:
         pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
-        
+
+
+
 def load_obj(name):
     with open(name + '.pkl', 'rb') as f:
         obj = pickle.load(f)
     return obj
+
+
+
 def calc_corr(spatial_df, pred_res, test_gene):
     """
     spatial_df: original spatial data (cell by gene dataframe)

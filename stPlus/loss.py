@@ -17,6 +17,8 @@ def loss_recon_func(recon_x, origi_x):
     MSE = reconstruction_function(recon_x, origi_x)
     return MSE
 
+
+
 def loss_recon_sparsity_func(recon_x, origi_x, data_quality):
     """
     recon_x: reconstructed data

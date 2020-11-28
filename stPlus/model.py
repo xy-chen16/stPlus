@@ -38,6 +38,9 @@ class VAE(nn.Module):
     def forward(self, x):
         z = self.encode(x)
         return self.decode(z),z
+
+
+
 def stPlus(spatial_df, scrna_df, genes_to_predict, save_path_prefix='./stPlus',
           top_k=3000, t_min=5, data_quality=None, random_seed=None, verbose=True,
            converge_ratio=0.004, max_epoch_num=10000, batch_size=512, learning_rate=None, weight_decay=0.0002):
