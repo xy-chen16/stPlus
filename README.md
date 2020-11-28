@@ -41,7 +41,8 @@ Installation only requires a few minutes.
 Look for more usage of stPlus
 
 	stPlus.py --help 
-  '''   
+  
+   ```  
   usage: stPlus.py [-h] [--spatial_df_file SPATIAL_DF_FILE] [--scrna_df_file SCRNA_DF_FILE]
                  [--genes_file GENES_FILE] [--output_file OUTPUT_FILE] [--log_file LOG_FILE]
                  [--gpu_id GPU_ID] [--top_k TOP_K] [--t_min T_MIN] [--max_epoch_num MAX_EPOCH_NUM]
@@ -85,8 +86,8 @@ optional arguments:
   --weight_decay WEIGHT_DECAY
                         weight decay for model training
   --verbose VERBOSE     display the running progress or not   
-  '''   
-
+  
+   ```  
 Use functions in stPlus packages.
 
 	import stPlus
