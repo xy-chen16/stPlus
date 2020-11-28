@@ -1,5 +1,5 @@
 # stPlus
-stPlus: reference-based enhancement of spatial transcriptomics
+Reference-based enhancement of spatial transcriptomics
 ## Installation  
 
 stPlus neural network is implemented in [Pytorch](https://pytorch.org/) framework.  
