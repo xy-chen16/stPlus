@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='stPlus: reference-based enhancement of spatial transcriptomics')
     parser.add_argument('--spatial_df_file','-s', type=str, default=None, help='file path of normalized and logarithmized original spatial data (comma separated CSV file without index)')
-    parser.add_argument('--scrna_df_file','-i', type=str, default=None, help='file path of normalized and logarithmized reference scRNA-seq data (comma separated CSV file without index)')
+    parser.add_argument('--scrna_df_file','-r', type=str, default=None, help='file path of normalized and logarithmized reference scRNA-seq data (comma separated CSV file without index)')
     parser.add_argument('--genes_file','-g', type=str, default=None, help='file path of spatial genes to be predicted')
     parser.add_argument('--output_file', '-o', type=str, default=None, help='file path of predicted spatial data')
     parser.add_argument('--log_file', '-l',type=str, default=None, help='file path of running logs')
