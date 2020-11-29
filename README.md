@@ -51,7 +51,10 @@ The dependencies will be installed along with stPlus.
 	import pandas as pd
 	from stPlus import *
 	# Load the normalized and logarithmized spatial and scRNA-seq data, and the genes to predict
-	# The data can be accessed via: git clone git://github.com/xy-chen16/stPlus.git
+	# The data can be accessed via: 
+	# 	git clone git://github.com/xy-chen16/stPlus.git
+	# 	cd stPlus
+	# 	tar -zxvf data.tar.gz
 	spatial_df_file = './data/osmFISH_df.csv'
 	scrna_df_file   = './data/Zeisel_df.csv'
 	genes_file = './data/genes_to_predict.txt'
