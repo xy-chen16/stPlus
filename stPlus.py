@@ -77,7 +77,7 @@ if __name__ == '__main__':
     if not os.path.exists(save_path_prefix):
         os.makedirs(save_path_prefix)
     stPlus_res = stPlus(spatial_df=spatial_df, scrna_df=scrna_df, genes_to_predict=genes_to_predict,
-                        save_path_prefix=save_path_prefix, top_k=top_k, t_min=t_min, data_quality=data_quality,n_neighbors = n_neighbors,
+                        save_path_prefix=save_path_prefix, top_k=top_k, t_min=t_min, data_quality=data_quality, n_neighbors=n_neighbors,
                         random_seed=random_seed, verbose=verbose, converge_ratio=converge_ratio,
                         max_epoch_num=max_epoch_num, batch_size=batch_size, learning_rate=learning_rate,
                         weight_decay=weight_decay)

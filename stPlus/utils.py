@@ -12,7 +12,7 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import scipy.stats as st
 
-def pred_genes(net, val_loader, train_lab, scRNA_data, genes_to_predict,n_neighbors=50):
+def pred_genes(net, val_loader, train_lab, scRNA_data, genes_to_predict, n_neighbors=50):
     """
     net: trained model
     val_loader: DataLoader of train_set without shuffle

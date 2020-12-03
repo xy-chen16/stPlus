@@ -42,7 +42,7 @@ class VAE(nn.Module):
 
 
 def stPlus(spatial_df, scrna_df, genes_to_predict, save_path_prefix='./stPlus',
-          top_k=3000, t_min=5, data_quality=None, random_seed=None, verbose=True,n_neighbors =50,
+          top_k=3000, t_min=5, data_quality=None, random_seed=None, verbose=True, n_neighbors=50,
            converge_ratio=0.004, max_epoch_num=10000, batch_size=512, learning_rate=None, weight_decay=0.0002):
     """
     spatial_df:       [pandas dataframe] normalized and logarithmized original spatial data (cell by gene)
@@ -180,7 +180,7 @@ def stPlus(spatial_df, scrna_df, genes_to_predict, save_path_prefix='./stPlus',
         checkpoint = torch.load('%s-%dmin%d.pt'%(save_path_prefix,t_min,i_t_min))
         net.load_state_dict(checkpoint['model_state_dict'])
         optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        t_min_loss_pred[i_t_min] = pred_genes(net, val_loader, train_lab, scrna_df, genes_to_predict,n_neighbors)
+        t_min_loss_pred[i_t_min] = pred_genes(net, val_loader, train_lab, scrna_df, genes_to_predict, n_neighbors)
 
     t_min_loss_pred_mean = zero_pred_res.copy()
     for i_t_min in range(t_min):
