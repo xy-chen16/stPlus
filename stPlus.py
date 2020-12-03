@@ -27,6 +27,8 @@ if __name__ == '__main__':
     parser.add_argument('--top_k', default=3000, type=int, help='number of highly variable genes to use')
     parser.add_argument('--t_min', default=5, type=int,
                         help='number of epochs with minimal loss using to ensemble learning')
+    parser.add_argument('--n_neighbors', default=5, type=int,
+                        help='number of epochs with minimal loss using to ensemble learning')
     parser.add_argument('--max_epoch_num', default=10000, type=int, help='maximum number of epochs')
     parser.add_argument('--batch_size', default=512, type=int, help='batch size for model training')
     parser.add_argument('--random_seed', default=None, type=int, help='random seed in torch')
@@ -51,6 +53,7 @@ if __name__ == '__main__':
     log_file = args.log_file
     top_k = args.top_k
     t_min = args.t_min
+    n_neighbors = args.n_neighbors
     max_epoch_num = args.max_epoch_num
     batch_size = args.batch_size
     random_seed = args.random_seed
@@ -74,7 +77,7 @@ if __name__ == '__main__':
     if not os.path.exists(save_path_prefix):
         os.makedirs(save_path_prefix)
     stPlus_res = stPlus(spatial_df=spatial_df, scrna_df=scrna_df, genes_to_predict=genes_to_predict,
-                        save_path_prefix=save_path_prefix, top_k=top_k, t_min=t_min, data_quality=data_quality,
+                        save_path_prefix=save_path_prefix, top_k=top_k, t_min=t_min, data_quality=data_quality,n_neighbors = n_neighbors,
                         random_seed=random_seed, verbose=verbose, converge_ratio=converge_ratio,
                         max_epoch_num=max_epoch_num, batch_size=batch_size, learning_rate=learning_rate,
                         weight_decay=weight_decay)

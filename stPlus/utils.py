@@ -12,7 +12,7 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import scipy.stats as st
 
-def pred_genes(net, val_loader, train_lab, scRNA_data, genes_to_predict):
+def pred_genes(net, val_loader, train_lab, scRNA_data, genes_to_predict,n_neighbors=50):
     """
     net: trained model
     val_loader: DataLoader of train_set without shuffle
@@ -32,7 +32,7 @@ def pred_genes(net, val_loader, train_lab, scRNA_data, genes_to_predict):
     
     scRNA_transformed = fm_mu[train_lab!=1,:]
     spatial_transformed = fm_mu[train_lab==1,:]
-    nbrs = NearestNeighbors(n_neighbors=50, algorithm='auto', metric = 'cosine').fit(scRNA_transformed)
+    nbrs = NearestNeighbors(n_neighbors=n_neighbors, algorithm='auto', metric = 'cosine').fit(scRNA_transformed)
 
     pred_res = pd.DataFrame(np.zeros((spatial_transformed.shape[0],genes_to_predict.shape[0])), columns=genes_to_predict)
 

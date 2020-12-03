@@ -13,10 +13,10 @@ from setuptools import setup, find_packages
 
 setup(
     name="stPlus",
-    version="0.0.3",
+    version="0.0.4",
     keywords=("pip", "stPlus"),
     description="stPlus: reference-based enhancement of spatial transcriptomics",
-    long_description="",
+    long_description="stPlus is a reference-based method for the enhancement of spatial transcriptomics. Leveraging the holistic information in reference scRNA-seq data but not limited to the genes shared with spatial data, stPlus performs non-linear embedding for cells in both datasets and effectively predicts unmeasured spatial gene expression.\nAll stPlus wheels distributed on PyPI are MIT licensed.",
     license="MIT Licence",
     url="https://github.com/xy-chen16/stPlus",
     author="Xiaoyang Chen",
