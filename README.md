@@ -82,7 +82,7 @@ stPlus can also be seamlessly integrated with [Scanpy](https://scanpy.readthedoc
 ```
 ### Documentation notebook 
 
-We also provide a [quick-start notebook](https://github.com/xy-chen16/stPlus/demo.ipynb) which describes the fundamentals in detail and reproduces the results of stPlus.
+We also provide a [quick-start notebook](https://github.com/xy-chen16/stPlus/blob/main/demo.ipynb) which describes the fundamentals in detail and reproduces the results of stPlus.
 
 ### For calling stPlus with Bash commands
 ```
