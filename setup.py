@@ -21,7 +21,7 @@ setup(
     url="https://github.com/xy-chen16/stPlus",
     author="Xiaoyang Chen",
     author_email="xychen20@mails.tsinghua.edu.cn",
-    maintainer_email='ccq17@mails.tsinghua.edu.cn',
+    maintainer = "Shengquan Chen",
     packages=find_packages(),
     python_requires='>3.6.0',
     classifiers=[

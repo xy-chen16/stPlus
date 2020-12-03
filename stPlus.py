@@ -27,8 +27,8 @@ if __name__ == '__main__':
     parser.add_argument('--top_k', default=3000, type=int, help='number of highly variable genes to use')
     parser.add_argument('--t_min', default=5, type=int,
                         help='number of epochs with minimal loss using to ensemble learning')
-    parser.add_argument('--n_neighbors', default=5, type=int,
-                        help='number of epochs with minimal loss using to ensemble learning')
+    parser.add_argument('--n_neighbors', default=50, type=int,
+                        help='number of neighbors used to predict')
     parser.add_argument('--max_epoch_num', default=10000, type=int, help='maximum number of epochs')
     parser.add_argument('--batch_size', default=512, type=int, help='batch size for model training')
     parser.add_argument('--random_seed', default=None, type=int, help='random seed in torch')
