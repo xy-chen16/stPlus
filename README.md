@@ -3,6 +3,8 @@ stPlus is a reference-based method for the enhancement of spatial transcriptomic
 Leveraging the holistic information in reference scRNA-seq data but not limited to the genes shared with spatial data, 
 stPlus performs non-linear embedding for cells in both datasets and effectively predicts unmeasured spatial gene expression.
 
+### Find more details on [the website of stPlus](http://health.tsinghua.edu.cn/software/stPlus/).
+
 ## Installation  
 Anaconda users can first create a new Python environment and activate it via (this is unnecessary if your Python environment is managed in other ways)
 ```
@@ -84,7 +86,7 @@ stPlus can also be seamlessly integrated with [Scanpy](https://scanpy.readthedoc
 
 We also provide a [quick-start notebook](https://github.com/xy-chen16/stPlus/blob/main/demo.ipynb) which describes the fundamentals in detail and reproduces the results of stPlus.
 
-### For calling stPlus with Bash commands
+### For calling stPlus by Bash commands
 ```
 git clone git://github.com/xy-chen16/stPlus.git
 cd stPlus
@@ -92,7 +94,7 @@ tar -zxvf data.tar.gz
 python stPlus.py --spatial_df_file data/osmFISH_df.csv  --scrna_df_file data/Zeisel_df.csv \
 		 --genes_file data/genes_to_predict.txt --output_file stPlus_res.csv
 ```
-Look for more usage of stPlus iva
+Look for more usage of stPlus via
 
 ```
 python stPlus.py --help
