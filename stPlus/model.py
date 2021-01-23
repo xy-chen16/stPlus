@@ -9,6 +9,7 @@
 import numpy as np
 import pandas as pd
 import pickle
+import os
 from .loss import *
 from .dataset import *
 from .utils import *
@@ -42,7 +43,7 @@ class VAE(nn.Module):
 
 
 def stPlus(spatial_df, scrna_df, genes_to_predict, save_path_prefix='./stPlus',
-          top_k=3000, t_min=5, data_quality=None, random_seed=None, verbose=True, n_neighbors=50,
+          top_k=2000, t_min=5, data_quality=None, random_seed=None, verbose=True, n_neighbors=50,
            converge_ratio=0.004, max_epoch_num=10000, batch_size=512, learning_rate=None, weight_decay=0.0002):
     """
     spatial_df:       [pandas dataframe] normalized and logarithmized original spatial data (cell by gene)
@@ -90,7 +91,6 @@ def stPlus(spatial_df, scrna_df, genes_to_predict, save_path_prefix='./stPlus',
                                index = spatial_df.index, columns=scrna_df.columns)
     
     t_min_loss = np.array(list(range(1,t_min+1)))*1e20
-    t_min_loss_pred = {} 
     
     # select gene
     dedup_ind = ~scrna_df.columns.duplicated()
@@ -175,16 +175,19 @@ def stPlus(spatial_df, scrna_df, genes_to_predict, save_path_prefix='./stPlus',
                         'optimizer_state_dict': optimizer.state_dict()}, '%s-%dmin%d.pt'%(save_path_prefix,t_min,replace_ind))
     
     if verbose: print('Start prediction')
-    for i_t_min in range(t_min):
-        if verbose: print('\tUsing model %d to predict'%(i_t_min+1))
-        checkpoint = torch.load('%s-%dmin%d.pt'%(save_path_prefix,t_min,i_t_min))
-        net.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        t_min_loss_pred[i_t_min] = pred_genes(net, val_loader, train_lab, scrna_df, genes_to_predict, n_neighbors)
-
     t_min_loss_pred_mean = zero_pred_res.copy()
+    t_min_cnt = 0
     for i_t_min in range(t_min):
-        t_min_loss_pred_mean += t_min_loss_pred[i_t_min]
-    stPlus_res = t_min_loss_pred_mean / t_min
+        if os.path.exists('%s-%dmin%d.pt'%(save_path_prefix,t_min,i_t_min)):
+            if verbose: print('\tUsing model %d to predict'%(i_t_min+1))
+            checkpoint = torch.load('%s-%dmin%d.pt'%(save_path_prefix,t_min,i_t_min))
+            net.load_state_dict(checkpoint['model_state_dict'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            t_min_loss_pred_mean += pred_genes(net, val_loader, train_lab, scrna_df, genes_to_predict, n_neighbors)
+            t_min_cnt += 1
+        else:
+            if verbose: print('\tSkipped model %d'%(i_t_min+1))
+
+    stPlus_res = t_min_loss_pred_mean / t_min_cnt
     
     return stPlus_res
