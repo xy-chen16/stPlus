@@ -1,7 +1,6 @@
 # stPlus
-stPlus is a reference-based method for the enhancement of spatial transcriptomics. 
-Leveraging the holistic information in reference scRNA-seq data but not limited to the genes shared with spatial data, 
-stPlus performs non-linear embedding for cells in both datasets and effectively predicts unmeasured spatial gene expression.
+stPlus is a reference-based method for the accurate enhancement of spatial transcriptomics. Based on an auto-encoder with a carefully tailored loss function, stPlus performs joint embedding and predicts spatial gene expression via a weighted k-NN. The spatial transcriptomics enhanced by stPlus can provide better characterization of cell heterogeneity.
+
 
 ### Find more details on [the website of stPlus](http://health.tsinghua.edu.cn/software/stPlus/).
 
