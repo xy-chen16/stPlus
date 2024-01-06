@@ -19,8 +19,12 @@ import torch.nn.functional as F
 
 reconstruction_function = nn.MSELoss(reduction='sum')
 
-torch.set_default_tensor_type('torch.cuda.FloatTensor')
-
+# Handle CUDA enabled devices
+if (torch.cuda.is_available()):
+    torch.set_default_tensor_type('torch.cuda.FloatTensor')
+else:
+    torch.set_default_tensor_type('torch.FloatTensor')
+    
 class VAE(nn.Module):
     def __init__(self, n_features):
         super(VAE, self).__init__()
